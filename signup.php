@@ -31,6 +31,14 @@
 		{
 			echo '<p class="text-error">That username has already been taken. Please pick a new name and try again.</p>';
 		}
+		else if ($_GET['error'] == "resetpasswordempty")
+		{
+			echo '<p class="text-error">You left something blank while resetting your password.</br>Please re-submit your password reset request.</p>';
+		}
+		else if ($_GET['error'] == "resetpasswordconfirm")
+		{
+			echo '<p class="text-error">Your passwords did not match while resetting your password.</br>Please re-submit your password reset request.</p>';
+		}
 	}
 	else if ($_GET['signup'] == "success")
 	{
@@ -56,6 +64,13 @@
 		</div>
 		<button class="btn btn-primary input-group-btn" type="submit" name="signup-submit">Signup</button>
 	</form>
+	<?php
+		if (isset($_GET["update"]))
+		{
+			echo '<p class="text-success">Your password has been updated!</p>';
+		}
+	?>
+	<a href="reset-password.php">Forgot your password?</a>
 </main>
 
 <?php
